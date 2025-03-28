@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Christian Agustin</title>
+    <!-- Se incluye Tailwind CSS vía CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {},
+        },
+      };
+    </script>
+    <!-- FontAwesome para íconos -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body style="background-color: #d8d8d8">
+    <!-- Menú superior (visible solo en desktop) -->
+    <header
+      class="bg-blue-600 shadow fixed top-0 left-0 right-0 w-full z-10 transition-all duration-300"
+      id="navbar"
+    >
+      <nav
+        class="container mx-auto flex items-center justify-between py-2 px-4"
+      >
+        <!-- Nombre a la izquierda -->
+        <div class="text-white text-xl font-bold">
+          Christian Agustin
+          <div class="text-sm text-white" style="margin-top: -0.2rem">
+            SOFTWARE ENGINEER
+          </div>
+        </div>
+        <!-- Opciones de navegación (ahora se ocultan en lugar de todo el header) -->
+        <ul class="flex space-x-6 md:flex">
+          <li class="hidden md:block">
+            <a
+              href="#about"
+              class="text-white hover:text-gray-300"
+              data-i18n="navigation.about"
+              >About</a
+            >
+          </li>
+          <li class="hidden md:block">
+            <a
+              href="#portfolio"
+              class="text-white hover:text-gray-300"
+              data-i18n="navigation.portfolio"
+              >Portfolio</a
+            >
+          </li>
+          <li class="hidden md:block">
+            <a
+              href="#resume"
+              class="text-white hover:text-gray-300"
+              data-i18n="navigation.resume"
+              >Resume</a
+            >
+          </li>
+          <li class="hidden md:block">
+            <a
+              href="#contact"
+              class="text-white hover:text-gray-300"
+              data-i18n="navigation.contact"
+              >Contact</a
+            >
+          </li>
+          <li>
+            <button
+              id="theme-toggle"
+              class="text-white hover:text-gray-300 transition-all"
+              aria-label="Cambiar tema"
+            >
+              <i class="fas fa-moon" style="font-size: 1.5rem"></i>
+            </button>
+          </li>
+          <li>
+            <button
+              id="language-toggle"
+              class="text-white hover:text-gray-300 transition-all"
+              style="font-size: 1.1rem"
+              aria-label="Cambiar idioma"
+            >
+              <strong>
+                <span class="language-indicator">ES</span>
+              </strong>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Menú inferior tipo tabs (visible solo en móvil y tablet) -->
+    <nav
+      class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-blue-300 z-10"
+    >
+      <div class="flex justify-around items-center p-2">
+        <a
+          href="#about"
+          class="flex flex-col items-center text-xs text-gray-600 hover:text-blue-600"
+        >
+          <img
+            src="img/avatar-fb.jpeg"
+            alt="Christian Agustin"
+            class="rounded-full w-8 h-8 mb-1"
+          />
+          <span><div data-i18n="navigation.about">About</div></span>
+        </a>
+        <a
+          href="#portfolio"
+          class="flex flex-col items-center text-xs text-gray-600 hover:text-blue-600"
+        >
+          <i class="fas fa-briefcase text-lg mb-1"></i>
+          <span><div data-i18n="navigation.portfolio">Portfolio</div></span>
+        </a>
+        <a
+          href="#resume"
+          class="flex flex-col items-center text-xs text-gray-600 hover:text-blue-600"
+        >
+          <i class="fas fa-file text-lg mb-1"></i>
+          <span><div data-i18n="navigation.resume">Resume</div></span>
+        </a>
+        <a
+          href="#contact"
+          class="flex flex-col items-center text-xs text-gray-600 hover:text-blue-600"
+        >
+          <i class="fas fa-envelope text-lg mb-1"></i>
+          <span><div data-i18n="navigation.contact">Contact</div></span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <main class="container mx-auto px-4 py-2 mt-8 mb-16 md:mb-8">
+      <!-- Sección About -->
+      <section id="about" class="py-12">
+        <div class="flex flex-wrap">
+          <div
+            class="w-full 2xl:w-1/12 lg:w-2/12 md:w-6/12 pr-0 md:pr-2 mb-4 md:mb-0"
+          >
+            <img
+              id="profile-image"
+              src="img/christian-agustin-fb.jpg"
+              alt="Christian Agustin"
+              class="rounded-sm shadow w-full"
+            />
+          </div>
+          <div class="w-full 2xl:w-11/12 lg:w-10/12 md:w-6/12 px-0 md:px-2">
+            <h3 class="text-2xl font-semibold">
+              <div
+                class="text-center text-lg md:text-2xl lg:text-2xl xl:text-3xl"
+              >
+                <i class="fas fa-quote-left mr-2"></i>
+                <div
+                  data-i18n="sections.initial_phrase"
+                  style="display: inline"
+                >
+                  Software is no longer a luxury—it's the engine that powers
+                  successful businesses.
+                </div>
+                <i class="fas fa-quote-right mr-2"></i>
+                &#x1F9D0;
+              </div>
+            </h3>
+
+            <!-- Saludo (aparece debajo de la frase en pantallas pequeñas) -->
+            <div
+              class="bg-white rounded-lg shadow p-4 xl:m-10 2xl:m-2 md:m-5 mt-5 text-lg xl:text-2xl 2xl:text-xl hidden md:block"
+            >
+              <p data-i18n="sections.presentation_paragraph">
+                👋 Hello! I'm Christian Agustín, a software engineer passionate
+                about creating practical solutions that drive business growth. I
+                build end‑to‑end software—from crafting robust APIs and managing
+                databases to developing user‑friendly web and mobile
+                applications—turning complex challenges into scalable products
+                that help companies succeed.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Saludo (debajo de ambos elementos en pantallas medianas y grandes) -->
+        <div
+          class="w-full bg-white rounded-lg shadow p-4 mt-5 text-xl md:hidden"
+        >
+          <p data-i18n="sections.presentation_paragraph">
+            👋 Hello! I'm Christian Agustín, a software engineer passionate
+            about creating practical solutions that drive business growth. I
+            build end‑to‑end software—from crafting robust APIs and managing
+            databases to developing user‑friendly web and mobile
+            applications—turning complex challenges into scalable products that
+            help companies succeed.
+          </p>
+        </div>
+      </section>
+
+      <!-- Sección Portfolio -->
+      <section id="portfolio" class="py-12 px-4 bg-gray-50">
+        <h2 class="text-3xl font-bold mb-4" data-i18n="navigation.portfolio">Portfolio</h2>
+        <p data-i18n="sections.paragraph_portafolio" class="text-lg mb-10">
+
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-white rounded-lg shadow p-4">
+            <h3 class="text-xl font-bold mb-2">Proyecto 1</h3>
+            <p class="text-gray-600">Descripción breve del proyecto 1.</p>
+          </div>
+          <div class="bg-white rounded-lg shadow p-4">
+            <h3 class="text-xl font-bold mb-2">Proyecto 2</h3>
+            <p class="text-gray-600">Descripción breve del proyecto 2.</p>
+          </div>
+          <div class="bg-white rounded-lg shadow p-4">
+            <h3 class="text-xl font-bold mb-2">Proyecto 3</h3>
+            <p class="text-gray-600">Descripción breve del proyecto 3.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección Resume -->
+      <section id="resume" class="py-12 px-4">
+        <h2 class="text-3xl font-bold mb-4" data-i18n="navigation.resume">
+          Resume
+        </h2>
+
+        <!-- Professional Experience Timeline -->
+        <div class="mb-10">
+          <h3
+            class="text-2xl font-bold mb-6"
+            data-i18n="sections.professional_experience"
+          >
+            Professional Experience
+          </h3>
+
+          <div class="space-y-8">
+            <!-- Ericsson -->
+            <div
+              class="bg-white rounded-lg shadow p-5 border-l-4 border-blue-600"
+            >
+              <div
+                class="flex flex-col md:flex-row md:justify-between md:items-center mb-2"
+              >
+                <h4
+                  class="text-xl font-bold"
+                  data-i18n="experience.ericsson.title"
+                >
+                  IT Engineer – Ericsson / Telecommunication
+                </h4>
+                <span
+                  class="text-gray-500 mt-1 md:mt-0"
+                  data-i18n="experience.ericsson.period"
+                  >January 2016 – Present</span
+                >
+              </div>
+              <ul class="list-disc ml-5 text-gray-500">
+                <li data-i18n="experience.ericsson.point1">
+                  Developed Java Spring Boot applications integrated with Oracle
+                  Database, SOAP and REST services.
+                </li>
+                <li data-i18n="experience.ericsson.point2">
+                  Enhanced batch billing processes using multi-threading.
+                </li>
+                <li data-i18n="experience.ericsson.point3">
+                  Designed secure GraphQL APIs integrated with ReactJS.
+                </li>
+                <li data-i18n="experience.ericsson.point4">
+                  Established CI/CD pipelines (Jenkins, Docker, SonarQube).
+                </li>
+                <li data-i18n="experience.ericsson.point5">
+                  Agile/Scrum methodology collaboration.
+                </li>
+              </ul>
+            </div>
+
+            <!-- Easy Marketing -->
+            <div
+              class="bg-white rounded-lg shadow p-5 border-l-4 border-green-500"
+            >
+              <div
+                class="flex flex-col md:flex-row md:justify-between md:items-center mb-2"
+              >
+                <h4
+                  class="text-xl font-bold"
+                  data-i18n="experience.easymarketing.title"
+                >
+                  Senior Full Stack Developer – Easy Marketing / Personal
+                  Identification
+                </h4>
+                <span
+                  class="text-gray-500 mt-1 md:mt-0"
+                  data-i18n="experience.easymarketing.period"
+                  >January 2010 – December 2015</span
+                >
+              </div>
+              <ul class="list-disc ml-5 text-gray-500">
+                <li data-i18n="experience.easymarketing.point1">
+                  Led .NET application development with Entity Framework.
+                </li>
+                <li data-i18n="experience.easymarketing.point2">
+                  Created C# desktop applications and SQL Server processes.
+                </li>
+                <li data-i18n="experience.easymarketing.point3">
+                  Implemented SQL data synchronization and reporting automation.
+                </li>
+              </ul>
+            </div>
+
+            <!-- Banco Reformador -->
+            <div
+              class="bg-white rounded-lg shadow p-5 border-l-4 border-yellow-500"
+            >
+              <div
+                class="flex flex-col md:flex-row md:justify-between md:items-center mb-2"
+              >
+                <h4
+                  class="text-xl font-bold"
+                  data-i18n="experience.bancoreformador.title"
+                >
+                  Full Stack Developer – Banco Reformador / Bank
+                </h4>
+                <span
+                  class="text-gray-500 mt-1 md:mt-0"
+                  data-i18n="experience.bancoreformador.period"
+                  >November 2005 – December 2009</span
+                >
+              </div>
+              <ul class="list-disc ml-5 text-gray-500">
+                <li data-i18n="experience.bancoreformador.point1">
+                  Developed Delphi desktop applications for loan and bank
+                  account management.
+                </li>
+                <li data-i18n="experience.bancoreformador.point2">
+                  Optimized SQL queries and created web solutions for virtual
+                  banking.
+                </li>
+                <li data-i18n="experience.bancoreformador.point3">
+                  Automation of payment updates from PostgreSQL account
+                  databases to loans in SQL Server.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technical Skills Section -->
+        <div class="mb-10">
+          <h3
+            class="text-2xl font-bold mb-6"
+            data-i18n="sections.technical_skills"
+          >
+            Technical Skills
+          </h3>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Backend -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div class="bg-indigo-600 p-3 text-white">
+                <h4 class="text-lg font-bold" data-i18n="skills.backend.title">
+                  Backend
+                </h4>
+              </div>
+              <div class="p-4">
+                <ul class="space-y-2 text-gray-500">
+                  <li data-i18n="skills.backend.languages">
+                    Java (8, 11+), Spring, Spring Boot, JEE, Node.js, Python,
+                    PHP
+                  </li>
+                  <li data-i18n="skills.backend.architecture">
+                    Microservices architecture, RESTful APIs, GraphQL, SOAP
+                  </li>
+                  <li data-i18n="skills.backend.ci_cd">
+                    CI/CD (Jenkins, GitLab, SonarQube), Docker, Kubernetes, AWS
+                    (EC2, S3, LightSail, ECS)
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Frontend -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div class="bg-blue-500 p-3 text-white">
+                <h4 class="text-lg font-bold" data-i18n="skills.frontend.title">
+                  Frontend
+                </h4>
+              </div>
+              <div class="p-4">
+                <ul class="space-y-2 text-gray-500">
+                  <li data-i18n="skills.frontend.frameworks">
+                    ReactJS, React Native, TypeScript, JavaScript, HTML5, CSS,
+                    jQuery, Angular
+                  </li>
+                  <li data-i18n="skills.frontend.design">
+                    UI/UX Design, Single-Page Applications (SPAs), Material UI
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Database Management -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div class="bg-green-600 p-3 text-white">
+                <h4 class="text-lg font-bold" data-i18n="skills.database.title">
+                  Database Management
+                </h4>
+              </div>
+              <div class="p-4">
+                <ul class="space-y-2 text-gray-500">
+                  <li data-i18n="skills.database.systems">
+                    Oracle, SQL Server, MySQL, PostgreSQL, DB2
+                  </li>
+                  <li data-i18n="skills.database.modeling">
+                    Data modeling, complex queries, stored procedures, triggers
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Cloud & DevOps -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div class="bg-yellow-600 p-3 text-white">
+                <h4 class="text-lg font-bold" data-i18n="skills.cloud.title">
+                  Cloud & DevOps
+                </h4>
+              </div>
+              <div class="p-4">
+                <ul class="space-y-2 text-gray-500">
+                  <li data-i18n="skills.cloud.aws">
+                    AWS (EC2, S3, RDS, SQS), Docker, Kubernetes
+                  </li>
+                  <li data-i18n="skills.cloud.infrastructure">
+                    Infrastructure as Code (Terraform, Helm), DevOps practices
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Other Technologies -->
+            <div
+              class="bg-white rounded-lg shadow-lg overflow-hidden md:col-span-2"
+            >
+              <div class="bg-red-600 p-3 text-white">
+                <h4 class="text-lg font-bold" data-i18n="skills.other.title">
+                  Other Technologies
+                </h4>
+              </div>
+              <div class="p-4">
+                <ul class="space-y-2 text-gray-500">
+                  <li data-i18n="skills.other.tools">
+                    Git, GitOps, Linux (RHEL, Amazon), Tomcat, WebLogic
+                  </li>
+                  <li data-i18n="skills.other.security">
+                    Secure coding practices (OAuth, SSO, IAM, MFA, TLS)
+                  </li>
+                  <li data-i18n="skills.other.testing">
+                    TDD, unit testing (JUnit, Mockito, Jasmine)
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education & Certifications Section -->
+        <div class="mb-10">
+          <h3
+            class="text-2xl font-bold mb-6"
+            data-i18n="sections.education_certifications"
+          >
+            Education & Certifications
+          </h3>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Universidad -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div
+                class="bg-purple-700 p-3 text-white flex items-center justify-between"
+              >
+                <h4
+                  class="text-lg font-bold"
+                  data-i18n="education.degree.title"
+                >
+                  Bachelor of Science
+                </h4>
+                <i class="fas fa-university text-2xl"></i>
+              </div>
+              <div class="p-5">
+                <div class="flex items-center justify-center mb-4">
+                  <div class="w-24 h-24 flex items-center justify-center">
+                    <img
+                      src="img/usac.png"
+                      alt="Software Engineering"
+                      class="w-full h-auto object-contain"
+                    />
+                  </div>
+                </div>
+                <h5
+                  class="text-center font-semibold mb-2"
+                  data-i18n="education.degree.name"
+                >
+                  Software Engineering
+                </h5>
+                <p
+                  class="text-center text-gray-500"
+                  data-i18n="education.degree.institution"
+                >
+                  Universidad de San Carlos de Guatemala
+                </p>
+              </div>
+            </div>
+
+            <!-- Oracle Certification -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div
+                class="bg-red-600 p-3 text-white flex items-center justify-between"
+              >
+                <h4
+                  class="text-lg font-bold"
+                  data-i18n="education.oracle.title"
+                >
+                  Oracle Certification
+                </h4>
+                <i class="fab fa-java text-2xl"></i>
+              </div>
+              <div class="p-5">
+                <div class="flex items-center justify-center mb-4">
+                  <div class="w-24 h-24 flex items-center justify-center">
+                    <img
+                      src="img/JAVA8OJA.png"
+                      alt="Oracle Java Certification"
+                      class="w-full h-auto object-contain"
+                    />
+                  </div>
+                </div>
+                <h5
+                  class="text-center font-semibold mb-2"
+                  data-i18n="education.oracle.name"
+                >
+                  Oracle Certified Foundations Associate (OCFA)
+                </h5>
+                <p class="text-center">
+                  <a
+                    href="https://christianagustin.com/java-ocfa"
+                    class="text-blue-600 hover:underline"
+                    data-i18n="education.oracle.link"
+                  >
+                    christianagustin.com/java-ocfa
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            <!-- Scrum Certification -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div
+                class="bg-blue-600 p-3 text-white flex items-center justify-between"
+              >
+                <h4 class="text-lg font-bold" data-i18n="education.scrum.title">
+                  Scrum Certification
+                </h4>
+                <i class="fas fa-tasks text-2xl"></i>
+              </div>
+              <div class="p-5">
+                <div class="flex items-center justify-center mb-4">
+                  <div class="w-24 h-24 flex items-center justify-center">
+                    <img
+                      src="img/psd1.svg"
+                      alt="Professional Scrum Developer Certification"
+                      class="w-full h-auto object-contain"
+                    />
+                  </div>
+                </div>
+                <h5
+                  class="text-center font-semibold mb-2"
+                  data-i18n="education.scrum.name"
+                >
+                  Professional Scrum Developer (PSD I)
+                </h5>
+                <p class="text-center">
+                  <a
+                    href="https://christianagustin.com/psd1"
+                    class="text-blue-600 hover:underline"
+                    data-i18n="education.scrum.link"
+                  >
+                    christianagustin.com/psd1
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección Contact -->
+      <section id="contact" class="py-12 px-4 bg-gray-50">
+        <h2 class="text-3xl font-bold mb-4" data-i18n="navigation.contact">
+          Contact
+        </h2>
+        <div class="flex flex-col md:flex-row gap-6">
+          <!-- Formulario de contacto (izquierda) -->
+          <div class="w-full md:w-1/2">
+            <form
+              action="https://formsubmit.co/1885f78772692d9bea21ea32e26f4a3f"
+              method="POST"
+              class="bg-white rounded-lg shadow-lg p-6"
+            >
+              <!-- Configuración de formsubmit.co -->
+              <input
+                type="hidden"
+                name="_subject"
+                value="Nuevo mensaje desde CHRISTIANAGUSTIN.COM"
+              />
+              <input
+                type="hidden"
+                name="_next"
+                value="https://christianagustin.com"
+              />
+
+              <div class="mb-4">
+                <label
+                  for="name"
+                  class="block text-gray-500"
+                  data-i18n="form.name"
+                  >Nombre</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  class="w-full border border-gray-300 p-2 rounded mt-1 text-gray-500"
+                  data-i18n-placeholder="form.placeholders.name"
+                  placeholder="Tu nombre"
+                />
+              </div>
+              <div class="mb-4">
+                <label
+                  for="email"
+                  class="block text-gray-500"
+                  data-i18n="form.email"
+                  >Correo electrónico</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  class="w-full border border-gray-300 p-2 rounded mt-1 text-gray-500"
+                  data-i18n-placeholder="form.placeholders.email"
+                  placeholder="tu@correo.com"
+                />
+              </div>
+              <div class="mb-4">
+                <label
+                  for="message"
+                  class="block text-gray-500"
+                  data-i18n="form.message"
+                  >Mensaje</label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  class="w-full border border-gray-300 p-2 rounded mt-1 text-gray-500"
+                  data-i18n-placeholder="form.placeholders.message"
+                  placeholder="Tu mensaje"
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+                data-i18n="form.send"
+              >
+                Enviar
+              </button>
+            </form>
+          </div>
+
+          <!-- Información de contacto (derecha) -->
+          <div class="w-full md:w-1/2 flex flex-col gap-4">
+            <!-- LinkedIn -->
+            <div class="bg-white rounded-lg shadow-lg p-4 flex items-center">
+              <div class="flex-grow">
+                <h3 class="text-xl font-semibold mb-2">LinkedIn</h3>
+                <p class="text-gray-500" data-i18n="sections.linkedin">
+                  Conéctate conmigo profesionalmente y explora mi trayectoria
+                  laboral.
+                </p>
+              </div>
+              <div class="ml-4">
+                <a
+                  href="https://www.linkedin.com/in/christianagustin/"
+                  target="_blank"
+                  class="flex items-center bg-blue-600 text-white px-3 py-2 rounded hover:bg-blue-700"
+                >
+                  <i class="fab fa-linkedin text-xl mr-2"></i>
+                  <span>
+                    <div data-i18n="sections.connect">Conectar</div>
+                  </span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Upwork -->
+            <div class="bg-white rounded-lg shadow-lg p-4 flex items-center">
+              <div class="flex-grow">
+                <h3 class="text-xl font-semibold mb-2">Upwork</h3>
+                <p class="text-gray-500" data-i18n="sections.upwork">
+                  Contrata mis servicios para tu próximo proyecto o revisa mis
+                  trabajos anteriores.
+                </p>
+              </div>
+              <div class="ml-4">
+                <a
+                  href="https://www.upwork.com/freelancers/~014ea5fe821be4e0be?viewMode=1"
+                  target="_blank"
+                  class="flex items-center bg-green-500 text-white px-3 py-2 rounded hover:bg-green-600"
+                >
+                  <i class="fas fa-briefcase text-xl mr-2"></i>
+                  <span>
+                    <div data-i18n="sections.hire">Contratar</div>
+                  </span>
+                </a>
+              </div>
+            </div>
+
+            <!-- WhatsApp -->
+            <div class="bg-white rounded-lg shadow-lg p-4 flex items-center">
+              <div class="flex-grow">
+                <h3 class="text-xl font-semibold mb-2">WhatsApp</h3>
+                <p class="text-gray-500" data-i18n="sections.whatsapp">
+                  Contáctame directamente para consultas rápidas o para agendar
+                  una llamada.
+                </p>
+              </div>
+              <div class="ml-4">
+                <a
+                  href="https://wa.me/50256983041"
+                  target="_blank"
+                  class="flex items-center bg-green-500 text-white px-3 py-2 rounded hover:bg-green-600"
+                >
+                  <i class="fab fa-whatsapp text-xl mr-2"></i>
+                  <span>
+                    <div data-i18n="sections.contact">Contactar</div>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="bg-blue-600 p-4 text-white text-center md:mt-0 mt-10">
+      &copy; 2025 Christian Agustin.
+      <div data-i18n="footer.rights" style="display: inline">
+        todos los derechos reservados
+      </div>
+    </footer>
+
+    <!-- Scripts externos -->
+    <script src="js/navigation.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/language.js"></script>
+  </body>
+</html>
