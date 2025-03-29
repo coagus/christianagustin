@@ -95,18 +95,18 @@ const translations = {
     "education": {
       "degree": {
         "title": "Licenciatura",
-        "name": "Ingeniería de Software",
+        "name": "Ingeniería en Sistemas",
         "institution": "Universidad de San Carlos de Guatemala"
       },
       "oracle": {
-        "title": "Certificación Oracle",
+        "title": "Java",
         "name": "Oracle Certified Foundations Associate (OCFA)",
-        "link": "christianagustin.com/java-ocfa"
+        "link": "ver certificación"
       },
       "scrum": {
-        "title": "Certificación Scrum",
+        "title": "Scrum",
         "name": "Professional Scrum Developer (PSD I)",
-        "link": "christianagustin.com/psd1"
+        "link": "ver certificación"
       }
     }
   },
@@ -204,19 +204,19 @@ const translations = {
     },
     "education": {
       "degree": {
-        "title": "Bachelor of Science",
+        "title": "Bachelor",
         "name": "Software Engineering",
         "institution": "Universidad de San Carlos de Guatemala"
       },
       "oracle": {
-        "title": "Oracle Certification",
+        "title": "Java",
         "name": "Oracle Certified Foundations Associate (OCFA)",
-        "link": "christianagustin.com/java-ocfa"
+        "link": "view certificate"
       },
       "scrum": {
-        "title": "Scrum Certification",
+        "title": "Scrum",
         "name": "Professional Scrum Developer (PSD I)",
-        "link": "christianagustin.com/psd1"
+        "link": "view certificate"
       }
     }
   }

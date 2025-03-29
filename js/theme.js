@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
       el.classList.add('bg-gray-900');
     });
 
-    profileImage.src = 'img/christian-agustin-fn.jpg';
+    profileImage.src = 'img/christian-agustin-fn.jpeg';
   }
   
   function disableDarkMode() {
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function() {
       el.classList.add('bg-gray-50');
     });
 
-    profileImage.src = 'img/christian-agustin-fb.jpg';
+    profileImage.src = 'img/christian-agustin-fb.jpeg';
   }
 
 }); 
